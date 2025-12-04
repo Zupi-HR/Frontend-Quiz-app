@@ -16,7 +16,7 @@
     <!-- Quiz menu start -->
     <section id="quiz-menu">
       <header>
-        <h1>Welcome to the Frontend Quiz!</h1>
+        <h1>Welcome to the <strong>Frontend Quiz!</strong></h1>
         <p>Pick a subject to get started.</p>
       </header>
       <nav>
@@ -29,19 +29,41 @@
       </nav>
     </section>
     <!-- Quiz menu end -->
+
     <!-- Quiz question start -->
-    Question <!-- number --> of 10
-    A
-    B
-    C
-    D
-    Submit answer
+    <section id="quiz-question">
+      <p>Question <!-- number --> of 10</p>
+      <h2><!-- Question text will go here --></h2>
+
+      <form>
+        <fieldset>
+          <legend class="sr-only">Choose an answer:</legend>
+          <ul>
+            <li><label><input type="radio" name="answer"> A</label></li>
+            <li><label><input type="radio" name="answer"> B</label></li>
+            <li><label><input type="radio" name="answer"> C</label></li>
+            <li><label><input type="radio" name="answer"> D</label></li>
+          </ul>
+        </fieldset>
+        <button type="submit">Submit answer</button>
+      </form>
+    </section>
     <!-- Quiz question end -->
+
     <!-- Quiz completed start -->
-    Quiz completed
-    You scored...
-    <!-- score --> out of 10
-    Quiz completed end
+    <section id="quiz-completed">
+      <header>
+        <h2>Quiz completed</h2>
+        <p>You scored...</p>
+      </header>
+
+      <p>
+        <strong><!-- score --></strong> out of 10
+      </p>
+
+      <button>Play Again</button>
+    </section>
+    <!-- Quiz completed end -->
   </main>
 
 </body>
