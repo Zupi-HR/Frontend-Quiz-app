@@ -1,0 +1,195 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("assets/fonts/Rubik-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: italic;
+}
+
+:root {
+  /* ------------------- */
+  /*       Colors        */
+  /* ------------------- */
+
+  /* White & Black */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Grey */
+  --color-grey-500: #626c7f;
+  --color-grey-50: #f4f6fa;
+
+  /* Blue */
+  --color-blue-950: #2d3949;
+  --color-blue-900: #313e51;
+  --color-blue-850: #3b4d66;
+  --color-blue-500: #306aff;
+  --color-blue-300: #abc1e1;
+  --color-blue-100: #edf1f9;
+  --color-blue-50: #ebf0ff;
+
+  /* Green */
+  --color-green-500: #2fd887;
+  --color-green-100: #e0fdef;
+
+  /* Purple */
+  --color-purple-600: #a729f5;
+  --color-purple-100: #f6e7ff;
+
+  /* Orange */
+  --color-orange-400: #ff7e35;
+  --color-orange-50: #fff5ed;
+
+  /* Red */
+  --color-red-500: #ee5454;
+
+  /* ------------------- */
+  /*     Typography      */
+  /* ------------------- */
+
+  /* Font Family */
+  --font-rubik: "Rubik", sans-serif;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  /* Font Sizes */
+  --fs-144: 9rem;
+  /* 144px */
+  --fs-88: 5.5rem;
+  /* 88px */
+  --fs-64: 4rem;
+  /* 64px */
+  --fs-40: 2.5rem;
+  /* 40px */
+  --fs-36: 2.25rem;
+  /* 36px */
+  --fs-28: 1.75rem;
+  /* 28px */
+  --fs-24: 1.5rem;
+  /* 24px */
+  --fs-20: 1.25rem;
+  /* 20px */
+  --fs-18: 1.125rem;
+  /* 18px */
+  --fs-14: 0.875rem;
+  /* 14px */
+
+  /* Line Heights */
+  --lh-100: 1;
+  --lh-120: 1.2;
+  --lh-150: 1.5;
+
+  /* ------------------- */
+  /*       Spacing       */
+  /* ------------------- */
+  --spacing-100: 0.5rem;
+  /* 8px */
+  --spacing-200: 1rem;
+  /* 16px */
+  --spacing-300: 1.5rem;
+  /* 24px */
+  --spacing-400: 2rem;
+  /* 32px */
+  --spacing-500: 2.5rem;
+  /* 40px */
+  --spacing-600: 3rem;
+  /* 48px */
+  --spacing-800: 4rem;
+  /* 64px */
+  --spacing-1600: 8rem;
+  /* 128px */
+  --spacing-1800: 9rem;
+  /* 144px */
+  --spacing-2300: 11.5rem;
+  /* 184px */
+}
+
+body {
+  font-family: var(--font-rubik);
+  background: var(--color-grey-50) url(assets/images/pattern-background-mobile-light.svg) no-repeat top center / cover;
+  padding: var(--spacing-300);
+  min-height: 100vh;
+  line-height: var(--lh-150);
+}
+
+.theme-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-100);
+  align-items: center;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+}
+
+#theme-toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border-radius: 25px;
+  background-color: var(--color-purple-600);
+  transition: background .3s;
+  cursor: pointer;
+}
+
+
+#theme-toggle::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  top: 50%;
+  left: calc(4px + (12px / 2));
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: left .3s;
+}
+
+#theme-toggle:checked::after {
+  left: calc(100% - 4px - (12px / 2));
+}
+
+main {
+  padding-top: var(--spacing-400)
+}
+
+#quiz-menu header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+  line-height: var(--lh-120);
+}
+
+h1 {
+  font-size: var(--fs-40);
+  font-weight: var(--fw-light);
+  color: var(--color-blue-900);
+}
+
+h1 strong {
+  font-weight: var(--fw-medium);
+}
+
+#quiz-menu header p {
+  font-size: var(--fs-14);
+  line-height: var(--lh-150);
+  color: var(--color-grey-500);
+}
+
+#quiz-menu nav {
+  margin-top: var(--spacing-500);
+}
