@@ -207,7 +207,7 @@ h1 strong {
 #quiz-menu ul {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-200);
+  gap: var(--spacing-300);
   list-style-type: none;
 }
 
