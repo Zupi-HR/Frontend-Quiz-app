@@ -117,6 +117,26 @@
   display: none !important;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  /* Resets default browser behavior that prevents shrinking */
+}
+
 body {
   font-family: var(--font-rubik);
   background: var(--color-grey-50) url(assets/images/pattern-background-mobile-light.svg) no-repeat top center / cover;
@@ -216,21 +236,23 @@ h1 strong {
   margin-top: var(--spacing-500);
 }
 
-.quiz-menu ul {
+.quiz-menu ul,
+.quiz-question ul {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-300);
   list-style-type: none;
 }
 
-.quiz-menu li button {
+/* This is a reusable component class for the main menu and question options */
+.option-card {
   display: flex;
   align-items: center;
   gap: var(--spacing-200);
   background-color: var(--color-white);
   border: none;
   width: 100%;
-  font-size: var(--fs-20);
+  font-size: var(--fs-18);
   font-weight: var(--fw-medium);
   text-align: left;
   color: var(--color-blue-900);
@@ -239,17 +261,16 @@ h1 strong {
   cursor: pointer;
 }
 
-.quiz-menu li button:hover,
-.quiz-menu li button:focus-visible {
-  box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.3);
-}
-
-
 .quiz-menu li button img {
   width: var(--spacing-500);
   height: var(--spacing-500);
   padding: var(--spacing-100);
   border-radius: var(--spacing-100);
+}
+
+.option-card:hover,
+.option-card:focus-visible {
+  box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.3);
 }
 
 [data-quiz-type="HTML"] img {
@@ -266,6 +287,23 @@ h1 strong {
 
 [data-quiz-type="Accessibility"] img {
   background-color: var(--color-purple-100);
+}
+
+.quiz-question .letter {
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-18);
+  color: var(--color-grey-500);
+  width: var(--spacing-500);
+  height: var(--spacing-500);
+  height: 40px;
+  background-color: var(--color-grey-50);
+  border-radius: 6px;
+}
+
+.quiz-question .option-card:hover .letter {
+  background-color: var(--color-purple-100);
+  color: var(--color-purple-600);
 }
 
 @media (min-width: 768px) {
@@ -296,12 +334,17 @@ h1 strong {
     font-size: var(--fs-20);
   }
 
-  .quiz-menu li button img {
+  .quiz-menu .option-card img {
     width: 56px;
     height: 56px;
   }
 
-  .quiz-menu li button {
+  .quiz-question .letter {
+    width: 56px;
+    height: 56px;
+  }
+
+  .option-card {
     gap: var(--spacing-400);
     font-size: var(--fs-28);
   }
