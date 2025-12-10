@@ -289,6 +289,10 @@ h1 strong {
   background-color: var(--color-purple-100);
 }
 
+.quiz-question {
+  width: 100%;
+}
+
 .quiz-question .letter {
   display: grid;
   place-items: center;
