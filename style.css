@@ -300,7 +300,6 @@ h1 strong {
   color: var(--color-grey-500);
   width: var(--spacing-500);
   height: var(--spacing-500);
-  height: 40px;
   background-color: var(--color-grey-50);
   border-radius: 6px;
 }
