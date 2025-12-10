@@ -1,143 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Frontend Mentor | Frontend quiz app</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <div class="theme-switcher">
-          <img src="assets/images/icon-sun-dark.svg" alt="Light mode" />
-          <label class="switch">
-            <input type="checkbox" name="theme" id="theme-toggle" />
-          </label>
-          <img src="assets/images/icon-moon-dark.svg" alt="Dark mode" />
-        </div>
-      </header>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Frontend Mentor | Frontend quiz app</title>
+</head>
 
-      <main>
-        <!-- Quiz menu start -->
-        <section id="quiz-menu">
-          <header>
-            <h1>
-              Welcome to the <br />
-              <strong>Frontend Quiz!</strong>
-            </h1>
-            <p>Pick a subject to get started.</p>
-          </header>
-          <nav>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="theme-switcher">
+        <img src="assets/images/icon-sun-dark.svg" alt="Light mode" />
+        <label class="switch">
+          <input type="checkbox" name="theme" class="theme-toggle" />
+        </label>
+        <img src="assets/images/icon-moon-dark.svg" alt="Dark mode" />
+      </div>
+    </header>
+
+    <main>
+      <!-- Quiz menu start -->
+      <section id="quiz-menu" class="quiz-menu hidden">
+        <header>
+          <h1>
+            Welcome to the <br />
+            <strong>Frontend Quiz!</strong>
+          </h1>
+          <p>Pick a subject to get started.</p>
+        </header>
+        <nav>
+          <ul>
+            <li>
+              <button data-quiz-type="HTML">
+                <img src="assets/images/icon-html.svg" alt="HTML" />
+                HTML
+              </button>
+            </li>
+            <li>
+              <button data-quiz-type="CSS">
+                <img src="assets/images/icon-css.svg" alt="CSS" />
+                CSS
+              </button>
+            </li>
+            <li>
+              <button data-quiz-type="JavaScript">
+                <img src="assets/images/icon-js.svg" alt="JavaScript" />
+                JavaScript
+              </button>
+            </li>
+            <li>
+              <button data-quiz-type="Accessibility">
+                <img src="assets/images/icon-accessibility.svg" alt="Accessibility" />
+                Accessibility
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <!-- Quiz menu end -->
+
+      <!-- Quiz question start -->
+      <section id="quiz-question" class="quiz-question">
+        <p>
+          Question
+          <!-- number -->
+          of 10
+        </p>
+        <h2><!-- Question text will go here --></h2>
+
+        <form>
+          <fieldset>
+            <legend class="sr-only">Choose an answer:</legend>
             <ul>
               <li>
-                <button>
-                  <img src="assets/images/icon-html.svg" alt="HTML" />
-                  HTML
-                </button>
+                <label class="answer-option">
+                  <input type="radio" name="answer" class="sr-only" />
+                  <span class="letter">A</span>
+                  <span class="text">Answer text goes here</span>
+                </label>
               </li>
               <li>
-                <button>
-                  <img src="assets/images/icon-css.svg" alt="CSS" />
-                  CSS
-                </button>
+                <label class="answer-option">
+                  <input type="radio" name="answer" class="sr-only" />
+                  <span class="letter">B</span>
+                  <span class="text">Answer text goes here</span>
+                </label>
               </li>
               <li>
-                <button>
-                  <img src="assets/images/icon-js.svg" alt="JavaScript" />
-                  JavaScript
-                </button>
+                <label class="answer-option">
+                  <input type="radio" name="answer" class="sr-only" />
+                  <span class="letter">C</span>
+                  <span class="text">Answer text goes here</span>
+                </label>
               </li>
               <li>
-                <button>
-                  <img
-                    src="assets/images/icon-accessibility.svg"
-                    alt="Accessibility"
-                  />
-                  Accessibility
-                </button>
+                <label class="answer-option">
+                  <input type="radio" name="answer" class="sr-only" />
+                  <span class="letter">D</span>
+                  <span class="text">Answer text goes here</span>
+                </label>
               </li>
             </ul>
-          </nav>
-        </section>
-        <!-- Quiz menu end -->
+          </fieldset>
+          <button type="submit">Submit answer</button>
+          <div class="error-message">
+            <img src="assets/images/icon-error.svg" alt="Error" />
+            <span>Please select an answer</span>
+          </div>
+        </form>
+      </section>
+      <!-- Quiz question end -->
 
-        <!-- Quiz question start -->
-        <section id="quiz-question" class="hidden">
-          <p>
-            Question
-            <!-- number -->
-            of 10
-          </p>
-          <h2><!-- Question text will go here --></h2>
+      <!-- Quiz completed start -->
+      <section id="quiz-completed" class="quiz-completed hidden">
+        <header>
+          <h2>Quiz completed</h2>
+          <p>You scored...</p>
+        </header>
 
-          <form>
-            <fieldset>
-              <legend class="sr-only">Choose an answer:</legend>
-              <ul>
-                <li>
-                  <label class="answer-option">
-                    <input type="radio" name="answer" class="sr-only" />
-                    <span class="letter">A</span>
-                    <span class="text">Answer text goes here</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="answer-option">
-                    <input type="radio" name="answer" class="sr-only" />
-                    <span class="letter">B</span>
-                    <span class="text">Answer text goes here</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="answer-option">
-                    <input type="radio" name="answer" class="sr-only" />
-                    <span class="letter">C</span>
-                    <span class="text">Answer text goes here</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="answer-option">
-                    <input type="radio" name="answer" class="sr-only" />
-                    <span class="letter">D</span>
-                    <span class="text">Answer text goes here</span>
-                  </label>
-                </li>
-              </ul>
-            </fieldset>
-            <button type="submit">Submit answer</button>
-            <div class="error-message">
-              <img src="assets/images/icon-error.svg" alt="Error" />
-              <span>Please select an answer</span>
-            </div>
-          </form>
-        </section>
-        <!-- Quiz question end -->
+        <p>
+          <strong><!-- score --></strong> out of 10
+        </p>
 
-        <!-- Quiz completed start -->
-        <section id="quiz-completed" class="hidden">
-          <header>
-            <h2>Quiz completed</h2>
-            <p>You scored...</p>
-          </header>
+        <button type="button">Play Again</button>
+      </section>
+      <!-- Quiz completed end -->
+    </main>
+  </div>
+</body>
 
-          <p>
-            <strong><!-- score --></strong> out of 10
-          </p>
-
-          <button type="button">Play Again</button>
-        </section>
-        <!-- Quiz completed end -->
-      </main>
-    </div>
-  </body>
 </html>
