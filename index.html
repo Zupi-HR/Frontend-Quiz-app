@@ -66,13 +66,14 @@
 
       <!-- Quiz question start -->
       <section id="quiz-question" class="quiz-question">
-        <p>
+        <p id="progress-label">
           Question
           <!-- number -->
           of 10
         </p>
         <h2><!-- Question text will go here --></h2>
-        <div class="progress-bar">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10"
+          aria-labelledby="progress-label">
           <div class="progress-bar-inner"></div>
         </div>
 
