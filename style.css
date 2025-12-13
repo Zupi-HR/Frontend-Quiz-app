@@ -414,9 +414,11 @@ h1 strong {
     flex-grow: 1;
   }
 
-  .quiz-menu {
+  .quiz-menu,
+  .quiz-question {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-1600);
+    column-gap: var(--spacing-1600);
   }
 
   .quiz-menu nav {
