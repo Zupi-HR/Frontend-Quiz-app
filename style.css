@@ -334,6 +334,25 @@ h1 strong {
   transition: width 0.3s ease-in-out;
 }
 
+.submit-btn {
+  width: 100%;
+  background-color: var(--color-purple-600);
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: var(--fs-18);
+  font-weight: var(--fw-medium);
+  color: var(--color-white);
+  cursor: pointer;
+  margin-top: var(--spacing-200);
+  transition: opacity 0.3s ease;
+}
+
+.submit-btn:hover,
+.submit-btn:focus-visible {
+  opacity: 0.75;
+}
+
 @media (min-width: 768px) {
   body {
     background: var(--color-grey-50) url(assets/images/pattern-background-tablet-light.svg) no-repeat top left / auto;
@@ -374,6 +393,10 @@ h1 strong {
 
   .option-card {
     gap: var(--spacing-400);
+    font-size: var(--fs-28);
+  }
+
+  .submit-btn {
     font-size: var(--fs-28);
   }
 }
