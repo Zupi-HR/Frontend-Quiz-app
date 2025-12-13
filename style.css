@@ -310,6 +310,30 @@ h1 strong {
   color: var(--color-purple-600);
 }
 
+.progress-label {
+  font-size: var(--fs-14);
+  color: var(--color-grey-500);
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: var(--color-white);
+  height: 16px;
+  border-radius: 999px;
+  margin-block: var(--spacing-300) var(--spacing-500);
+  padding: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 8px;
+  background-color: var(--color-purple-600);
+  border-radius: 104px;
+  --progress-value: 0;
+  width: calc(var(--progress-value) * 1%);
+  transition: width 0.3s ease-in-out;
+}
+
 @media (min-width: 768px) {
   body {
     background: var(--color-grey-50) url(assets/images/pattern-background-tablet-light.svg) no-repeat top left / auto;
