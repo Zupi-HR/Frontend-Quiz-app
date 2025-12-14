@@ -80,15 +80,16 @@
           <div class="progress-bar-inner"></div>
         </div>
 
-        <form>
+        <form novalidate>
           <fieldset>
             <legend class="sr-only">Choose an answer:</legend>
             <ul>
               <li>
                 <label class="option-card">
-                  <input type="radio" name="answer" class="sr-only" value="Answer text goes here" />
+                  <input type="radio" name="answer" class="sr-only" value="Answer text goes here" / required>
                   <span class="letter">A</span>
                   <span class="text">Answer text goes here</span>
+                  <img src="/assets/images/icon-incorrect.svg" alt="Incorrect" class="validation-icon">
                 </label>
               </li>
               <li>
@@ -96,6 +97,7 @@
                   <input type="radio" name="answer" class="sr-only" value="Answer text goes here" />
                   <span class="letter">B</span>
                   <span class="text">Answer text goes here</span>
+                  <img src="/assets/images/icon-incorrect.svg" alt="Incorrect" class="validation-icon">
                 </label>
               </li>
               <li>
@@ -103,6 +105,7 @@
                   <input type="radio" name="answer" class="sr-only" value="Answer text goes here" />
                   <span class="letter">C</span>
                   <span class="text">Answer text goes here</span>
+                  <img src="/assets/images/icon-incorrect.svg" alt="Incorrect" class="validation-icon">
                 </label>
               </li>
               <li>
@@ -110,6 +113,7 @@
                   <input type="radio" name="answer" class="sr-only" value="Answer text goes here" />
                   <span class="letter">D</span>
                   <span class="text">Answer text goes here</span>
+                  <img src="/assets/images/icon-incorrect.svg" alt="Incorrect" class="validation-icon">
                 </label>
               </li>
             </ul>

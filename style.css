@@ -250,7 +250,7 @@ h1 strong {
   align-items: center;
   gap: var(--spacing-200);
   background-color: var(--color-white);
-  border: none;
+  border: 3px solid transparent;
   width: 100%;
   font-size: var(--fs-18);
   font-weight: var(--fw-medium);
@@ -310,6 +310,11 @@ h1 strong {
   color: var(--color-purple-600);
 }
 
+.validation-icon {
+  margin-left: auto;
+  display: none;
+}
+
 .progress-label {
   font-size: var(--fs-14);
   color: var(--color-grey-500);
@@ -352,6 +357,51 @@ h1 strong {
 .submit-btn:focus-visible {
   opacity: 0.75;
 }
+
+.option-card:has(input[type="radio"]:checked) {
+  border-color: var(--color-purple-600);
+}
+
+.option-card:has(input[type="radio"]:checked) .letter {
+  color: var(--color-white);
+  background-color: var(--color-purple-600);
+}
+
+.option-card.correct {
+  border-color: var(--color-green-500);
+}
+
+.option-card.correct .letter {
+  color: var(--color-white);
+  background-color: var(--color-green-500);
+}
+
+.option-card.incorrect {
+  border-color: var(--color-red-500);
+}
+
+.option-card.incorrect {
+  color: var(--color-white);
+  background-color: var(--color-red-500);
+}
+
+.error-message {
+  display: flex;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--spacing-200);
+  color: var(--color-red-500);
+  font-size: var(--fs-18);
+  font-weight: var(--fw-medium);
+  text-align: center;
+  gap: var(--spacing-100);
+}
+
+.error-message.visible {
+  visibility: visible;
+}
+
 
 @media (min-width: 768px) {
   body {
@@ -400,6 +450,7 @@ h1 strong {
     font-size: var(--fs-28);
   }
 }
+
 
 @media (min-width: 1200px) {
   body {
