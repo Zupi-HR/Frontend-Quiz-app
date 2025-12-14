@@ -380,7 +380,7 @@ h1 strong {
   border-color: var(--color-red-500);
 }
 
-.option-card.incorrect {
+.option-card.incorrect .letter {
   color: var(--color-white);
   background-color: var(--color-red-500);
 }
