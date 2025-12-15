@@ -248,6 +248,7 @@ main {
 
 .quiz-menu {
   display: grid;
+  width: 100%;
 }
 
 .quiz-menu header {

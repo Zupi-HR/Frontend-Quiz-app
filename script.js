@@ -1,5 +1,7 @@
 let storedTheme = localStorage.getItem("darkMode");
 const darkModeToggle = document.querySelector(".theme-toggle");
+const headerSubject = document.getElementById("header-subject");
+const quizMenu = document.getElementById("quiz-menu");
 
 function enableDarkMode() {
   document.body.dataset.theme = "dark";
@@ -23,4 +25,11 @@ darkModeToggle.addEventListener("change", () => {
   } else {
     disableDarkMode();
   }
+});
+
+quizMenu.addEventListener("click", (event) => {
+  const selectedButton = event.target.closest("button[data-quiz-type]");
+  if (!selectedButton) return;
+  const selectedSubject = selectedButton.dataset.quizType;
+  console.log(selectedSubject);
 });
