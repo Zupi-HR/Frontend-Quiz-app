@@ -67,6 +67,8 @@
 
   /* Assets */
   --bg-pattern: url(assets/images/pattern-background-mobile-light.svg);
+  --icon-sun: url(assets/images/icon-sun-dark.svg);
+  --icon-moon: url(assets/images/icon-moon-dark.svg);
 
   /* ------------------- */
   /*     Typography      */
@@ -140,6 +142,8 @@
   --text-secondary: var(--color-blue-300);
   --shadow-card: 0 16px 40px 0 rgba(0, 0, 0, 0.5);
   --bg-pattern: url(assets/images/pattern-background-mobile-dark.svg);
+  --icon-sun: url(assets/images/icon-sun-light.svg);
+  --icon-moon: url(assets/images/icon-moon-light.svg);
 }
 
 .hidden {
@@ -197,6 +201,14 @@ main {
   justify-content: flex-end;
   gap: var(--spacing-100);
   align-items: center;
+}
+
+.theme-switcher img[alt="Light mode"] {
+  content: var(--icon-sun);
+}
+
+.theme-switcher img[alt="Dark mode"] {
+  content: var(--icon-moon);
 }
 
 .switch {
