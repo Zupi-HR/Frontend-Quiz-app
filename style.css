@@ -14,18 +14,15 @@
 
 :root {
   /* ------------------- */
-  /*       Colors        */
+  /*   Primitive Colors  */
   /* ------------------- */
 
-  /* White & Black */
   --color-white: #ffffff;
   --color-black: #000000;
 
-  /* Grey */
   --color-grey-500: #626c7f;
   --color-grey-50: #f4f6fa;
 
-  /* Blue */
   --color-blue-950: #2d3949;
   --color-blue-900: #313e51;
   --color-blue-850: #3b4d66;
@@ -34,20 +31,42 @@
   --color-blue-100: #edf1f9;
   --color-blue-50: #ebf0ff;
 
-  /* Green */
   --color-green-500: #2fd887;
   --color-green-100: #e0fdef;
 
-  /* Purple */
   --color-purple-600: #a729f5;
   --color-purple-100: #f6e7ff;
 
-  /* Orange */
   --color-orange-400: #ff7e35;
   --color-orange-50: #fff5ed;
 
-  /* Red */
   --color-red-500: #ee5454;
+
+  /* ------------------- */
+  /*   Semantic Values   */
+  /* ------------------- */
+
+  /* Backgrounds */
+  --bg-body: var(--color-grey-50);
+  --bg-card: var(--color-white);
+  --bg-neutral: var(--color-grey-50);
+
+  /* Text */
+  --text-primary: var(--color-blue-900);
+  --text-secondary: var(--color-grey-500);
+  --text-inverse: var(--color-white);
+
+  /* Brand & States */
+  --color-brand: var(--color-purple-600);
+  --color-brand-light: var(--color-purple-100);
+  --color-success: var(--color-green-500);
+  --color-error: var(--color-red-500);
+
+  /* Shadows */
+  --shadow-card: 0 16px 40px 0 rgba(143, 160, 193, 0.3);
+
+  /* Assets */
+  --bg-pattern: url(assets/images/pattern-background-mobile-light.svg);
 
   /* ------------------- */
   /*     Typography      */
@@ -113,6 +132,16 @@
   /* 184px */
 }
 
+[data-theme="dark"] {
+  --bg-body: var(--color-blue-900);
+  --bg-card: var(--color-blue-850);
+  --bg-neutral: var(--color-grey-50);
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-blue-300);
+  --shadow-card: 0 16px 40px 0 rgba(0, 0, 0, 0.5);
+  --bg-pattern: url(assets/images/pattern-background-mobile-dark.svg);
+}
+
 .hidden {
   display: none !important;
 }
@@ -139,7 +168,7 @@ fieldset {
 
 body {
   font-family: var(--font-rubik);
-  background: var(--color-grey-50) url(assets/images/pattern-background-mobile-light.svg) no-repeat top center / cover;
+  background: var(--bg-body) var(--bg-pattern) no-repeat top center / cover;
   min-height: 100vh;
   line-height: var(--lh-150);
   display: flex;
@@ -182,7 +211,7 @@ main {
   width: 32px;
   height: 20px;
   border-radius: 25px;
-  background-color: var(--color-purple-600);
+  background-color: var(--color-brand);
   transition: background 0.3s;
   cursor: pointer;
 }
@@ -219,7 +248,7 @@ main {
 h1 {
   font-size: var(--fs-40);
   font-weight: var(--fw-light);
-  color: var(--color-blue-900);
+  color: var(--text-primary);
 }
 
 h1 strong {
@@ -229,7 +258,7 @@ h1 strong {
 .quiz-menu header p {
   font-size: var(--fs-14);
   line-height: var(--lh-150);
-  color: var(--color-grey-500);
+  color: var(--text-secondary);
 }
 
 .quiz-menu nav {
@@ -249,13 +278,13 @@ h1 strong {
   display: flex;
   align-items: center;
   gap: var(--spacing-200);
-  background-color: var(--color-white);
+  background-color: var(--bg-card);
   border: 3px solid transparent;
   width: 100%;
   font-size: var(--fs-18);
   font-weight: var(--fw-medium);
   text-align: left;
-  color: var(--color-blue-900);
+  color: var(--text-primary);
   padding: var(--spacing-200);
   border-radius: 12px;
   cursor: pointer;
@@ -270,7 +299,7 @@ h1 strong {
 
 .option-card:hover,
 .option-card:focus-visible {
-  box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.3);
+  box-shadow: var(--shadow-card);
 }
 
 [data-quiz-type="HTML"] img {
@@ -300,14 +329,14 @@ h1 strong {
   color: var(--color-grey-500);
   width: var(--spacing-500);
   height: var(--spacing-500);
-  background-color: var(--color-grey-50);
+  background-color: var(--bg-neutral);
   border-radius: 6px;
 }
 
 .quiz-question .option-card:hover .letter,
 .quiz-question .option-card:focus-visible .letter {
-  background-color: var(--color-purple-100);
-  color: var(--color-purple-600);
+  background-color: var(--color-brand-light);
+  color: var(--color-brand);
 }
 
 .validation-icon {
@@ -317,12 +346,12 @@ h1 strong {
 
 .progress-label {
   font-size: var(--fs-14);
-  color: var(--color-grey-500);
+  color: var(--text-secondary);
 }
 
 .progress-bar {
   width: 100%;
-  background-color: var(--color-white);
+  background-color: var(--bg-card);
   height: 16px;
   border-radius: 999px;
   margin-block: var(--spacing-300) var(--spacing-500);
@@ -332,7 +361,7 @@ h1 strong {
 
 .progress-bar-inner {
   height: 8px;
-  background-color: var(--color-purple-600);
+  background-color: var(--color-brand);
   border-radius: 104px;
   --progress-value: 0;
   width: calc(var(--progress-value) * 1%);
@@ -341,13 +370,13 @@ h1 strong {
 
 .submit-btn {
   width: 100%;
-  background-color: var(--color-purple-600);
+  background-color: var(--color-brand);
   border: none;
   border-radius: 12px;
   padding: 16px;
   font-size: var(--fs-18);
   font-weight: var(--fw-medium);
-  color: var(--color-white);
+  color: var(--text-inverse);
   cursor: pointer;
   margin-top: var(--spacing-200);
   transition: opacity 0.3s ease;
@@ -359,30 +388,30 @@ h1 strong {
 }
 
 .option-card:has(input[type="radio"]:checked) {
-  border-color: var(--color-purple-600);
+  border-color: var(--color-brand);
 }
 
 .option-card:has(input[type="radio"]:checked) .letter {
-  color: var(--color-white);
-  background-color: var(--color-purple-600);
+  color: var(--text-inverse);
+  background-color: var(--color-brand);
 }
 
 .option-card.correct {
-  border-color: var(--color-green-500);
+  border-color: var(--color-success);
 }
 
 .option-card.correct .letter {
-  color: var(--color-white);
-  background-color: var(--color-green-500);
+  color: var(--text-inverse);
+  background-color: var(--color-success);
 }
 
 .option-card.incorrect {
-  border-color: var(--color-red-500);
+  border-color: var(--color-error);
 }
 
 .option-card.incorrect .letter {
-  color: var(--color-white);
-  background-color: var(--color-red-500);
+  color: var(--text-inverse);
+  background-color: var(--color-error);
 }
 
 .error-message {
@@ -391,7 +420,7 @@ h1 strong {
   justify-content: center;
   align-items: center;
   margin-top: var(--spacing-200);
-  color: var(--color-red-500);
+  color: var(--color-error);
   font-size: var(--fs-18);
   font-weight: var(--fw-medium);
   text-align: center;
@@ -404,8 +433,16 @@ h1 strong {
 
 
 @media (min-width: 768px) {
+  :root {
+    --bg-pattern: url(assets/images/pattern-background-tablet-light.svg);
+  }
+
+  [data-theme="dark"] {
+    --bg-pattern: url(assets/images/pattern-background-tablet-dark.svg);
+  }
+
   body {
-    background: var(--color-grey-50) url(assets/images/pattern-background-tablet-light.svg) no-repeat top left / auto;
+    background: var(--bg-body) var(--bg-pattern) no-repeat top left / auto;
   }
 
   h1 {
@@ -453,8 +490,16 @@ h1 strong {
 
 
 @media (min-width: 1200px) {
+  :root {
+    --bg-pattern: url(assets/images/pattern-background-desktop-light.svg);
+  }
+
+  [data-theme="dark"] {
+    --bg-pattern: url(assets/images/pattern-background-desktop-dark.svg);
+  }
+
   body {
-    background: var(--color-grey-50) url(assets/images/pattern-background-desktop-light.svg) no-repeat top left / auto;
+    background: var(--bg-body) var(--bg-pattern) no-repeat top left / auto;
   }
 
   .container {
