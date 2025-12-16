@@ -191,6 +191,28 @@ body {
   flex-grow: 1;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-subject {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+  color: var(--text-primary);
+  font-size: var(--fs-18);
+  font-weight: var(--fw-medium);
+}
+
+.header-subject img {
+  width: var(--spacing-500);
+  height: var(--spacing-500);
+  padding: var(--spacing-100);
+  border-radius: var(--spacing-100);
+}
+
 main {
   display: grid;
   place-items: center;
@@ -324,7 +346,7 @@ h1 strong {
 }
 
 [data-quiz-type="JavaScript"] img {
-  background-color: var(--color-blue-100);
+  background-color: var(--color-blue-50);
 }
 
 [data-quiz-type="Accessibility"] img {
