@@ -3,6 +3,15 @@ const darkModeToggle = document.querySelector(".theme-toggle");
 const headerSubject = document.getElementById("header-subject");
 const quizMenu = document.getElementById("quiz-menu");
 const quizQuestion = document.getElementById("quiz-question");
+const questionText = document.querySelector(".question-text");
+const form = document.querySelector("form");
+const errorMessage = document.querySelector(".error-message");
+const progressBarInner = document.querySelector(".progress-bar-inner");
+const questionNumberDisplay = document.querySelector(".question-number");
+const answerLabels = document.querySelectorAll(".quiz-question .option-card");
+
+let currentProgress = 0;
+let currentQuestion = 0;
 
 function enableDarkMode() {
   document.body.dataset.theme = "dark";
@@ -46,6 +55,42 @@ function startQuiz(quiz) {
   `;
   quizMenu.classList.add("hidden");
   quizQuestion.classList.remove("hidden");
+  renderQuestion(quiz);
+  updateProgressBar();
+}
+
+function updateProgressBar() {
+  questionNumberDisplay.textContent = currentQuestion + 1;
+  progressBarInner.style.setProperty(
+    "--progress-value",
+    (currentProgress += 10)
+  );
+}
+
+function checkValidity() {
+  if (!form.checkValidity()) {
+    errorMessage.classList.add("visible");
+    return false;
+  } else {
+    errorMessage.classList.remove("visible");
+    return true;
+  }
+}
+
+function checkAnswer() {}
+
+function renderQuestion(quiz) {
+  const question = quiz?.questions[currentQuestion];
+  if (!question) return;
+  questionText.textContent = question.question;
+  errorMessage.classList.remove("visible");
+  question.options.forEach((choice, index) => {
+    const input = answerLabels[index].querySelector('input[type="radio"]');
+    input.value = choice;
+    input.checked = false;
+    const text = answerLabels[index].querySelector(".text");
+    text.textContent = choice;
+  });
 }
 
 quizMenu.addEventListener("click", async (event) => {
@@ -58,4 +103,12 @@ quizMenu.addEventListener("click", async (event) => {
     (quiz) => quiz.title === quizTitle
   );
   startQuiz(selectedQuiz);
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (!checkValidity()) {
+    return;
+  }
+  currentQuestion++;
 });

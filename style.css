@@ -357,6 +357,14 @@ h1 strong {
   width: 100%;
 }
 
+.question-text {
+  font-size: var(--fs-20);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  line-height: var(--lh-120);
+  margin-top: var(--spacing-200);
+}
+
 .quiz-question .letter {
   display: grid;
   place-items: center;
