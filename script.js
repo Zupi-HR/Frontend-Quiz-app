@@ -10,7 +10,6 @@ const progressBarInner = document.querySelector(".progress-bar-inner");
 const questionNumberDisplay = document.querySelector(".question-number");
 const answerLabels = document.querySelectorAll(".quiz-question .option-card");
 
-let currentProgress = 0;
 let currentQuestion = 0;
 
 function enableDarkMode() {
@@ -61,10 +60,8 @@ function startQuiz(quiz) {
 
 function updateProgressBar() {
   questionNumberDisplay.textContent = currentQuestion + 1;
-  progressBarInner.style.setProperty(
-    "--progress-value",
-    (currentProgress += 10)
-  );
+  const progress = (currentQuestion + 1) * 10;
+  progressBarInner.style.setProperty("--progress-value", progress);
 }
 
 function checkValidity() {
