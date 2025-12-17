@@ -11,6 +11,7 @@ const questionNumberDisplay = document.querySelector(".question-number");
 const answerLabels = document.querySelectorAll(".quiz-question .option-card");
 
 let currentQuestion = 0;
+let currentQuiz = null;
 
 function enableDarkMode() {
   document.body.dataset.theme = "dark";
@@ -47,14 +48,16 @@ async function getData() {
 }
 
 function startQuiz(quiz) {
-  headerSubject.dataset.quizType = quiz.title;
+  currentQuestion = 0;
+  currentQuiz = quiz;
+  headerSubject.dataset.quizType = currentQuiz.title;
   headerSubject.innerHTML = `
-  <img src="${quiz.icon}" alt="">
-  <span>${quiz.title}</span>
+  <img src="${currentQuiz.icon}" alt="">
+  <span>${currentQuiz.title}</span>
   `;
   quizMenu.classList.add("hidden");
   quizQuestion.classList.remove("hidden");
-  renderQuestion(quiz);
+  renderQuestion(currentQuiz);
   updateProgressBar();
 }
 
@@ -74,7 +77,23 @@ function checkValidity() {
   }
 }
 
-function checkAnswer() {}
+function checkAnswer(form) {
+  const selectedInput = form.querySelector('input[name="answer"]:checked');
+  if (!selectedInput) {
+    return;
+  }
+  const selectedLabel = selectedInput.closest(".option-card");
+  const selectedAnswer = selectedInput.value;
+  const correctAnswer = currentQuiz.questions[currentQuestion].answer;
+  console.log(selectedLabel);
+  console.log(selectedAnswer);
+
+  if (selectedAnswer === correctAnswer) {
+    selectedLabel.classList.add("correct");
+  } else {
+    selectedLabel.classList.add("incorrect");
+  }
+}
 
 function renderQuestion(quiz) {
   const question = quiz?.questions[currentQuestion];
@@ -107,5 +126,7 @@ form.addEventListener("submit", (e) => {
   if (!checkValidity()) {
     return;
   }
+  console.log(e.target);
+  checkAnswer(e.target);
   currentQuestion++;
 });

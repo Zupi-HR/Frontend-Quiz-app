@@ -440,21 +440,21 @@ h1 strong {
 }
 
 .option-card.correct {
-  border-color: var(--color-success);
+  border-color: var(--color-success) !important;
 }
 
 .option-card.correct .letter {
   color: var(--text-inverse);
-  background-color: var(--color-success);
+  background-color: var(--color-success) !important;
 }
 
 .option-card.incorrect {
-  border-color: var(--color-error);
+  border-color: var(--color-error) !important;
 }
 
 .option-card.incorrect .letter {
   color: var(--text-inverse);
-  background-color: var(--color-error);
+  background-color: var(--color-error) !important;
 }
 
 .error-message {
