@@ -126,7 +126,7 @@ form.addEventListener("submit", (e) => {
   if (!checkValidity()) {
     return;
   }
-  console.log(e.target);
+  form.querySelector("fieldset").disabled = true;
   checkAnswer(e.target);
   currentQuestion++;
 });

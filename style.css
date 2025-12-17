@@ -385,6 +385,8 @@ h1 strong {
 .validation-icon {
   margin-left: auto;
   display: none;
+  width: 32px;
+  height: 32px;
 }
 
 .progress-label {
@@ -455,6 +457,14 @@ h1 strong {
 .option-card.incorrect .letter {
   color: var(--text-inverse);
   background-color: var(--color-error) !important;
+}
+
+.option-card.correct .icon-correct {
+  display: block;
+}
+
+.option-card.incorrect .icon-incorrect {
+  display: block;
 }
 
 .error-message {
