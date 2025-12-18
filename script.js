@@ -11,6 +11,9 @@ const questionNumberDisplay = document.querySelector(".question-number");
 const answerLabels = document.querySelectorAll(".quiz-question .option-card");
 const submitBtn = document.querySelector(".submit-btn");
 const nextBtn = document.querySelector(".next-btn");
+const quizCompleted = document.getElementById("quiz-completed");
+const finalScore = document.querySelector(".score-card strong");
+const resultSubject = document.querySelector(".score-card .header-subject");
 
 let currentQuestion = 0;
 let currentScore = 0;
@@ -52,6 +55,7 @@ async function getData() {
 
 function startQuiz(quiz) {
   currentQuestion = 0;
+  currentScore = 0;
   currentQuiz = quiz;
   headerSubject.dataset.quizType = currentQuiz.title;
   headerSubject.innerHTML = `
@@ -95,7 +99,6 @@ function checkAnswer(form) {
   } else {
     selectedLabel.classList.add("incorrect");
     const allOptions = form.querySelectorAll('input[name="answer"]');
-    console.log(allOptions);
     allOptions.forEach((option) => {
       if (option.value === correctAnswer) {
         option
@@ -135,6 +138,14 @@ quizMenu.addEventListener("click", async (event) => {
   startQuiz(selectedQuiz);
 });
 
+function finishQuiz() {
+  quizQuestion.classList.add("hidden");
+  quizCompleted.classList.remove("hidden");
+  finalScore.textContent = currentScore;
+  resultSubject.innerHTML = headerSubject.innerHTML;
+  resultSubject.dataset.quizType = currentQuiz.title;
+}
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!checkValidity()) {
@@ -147,10 +158,14 @@ form.addEventListener("submit", (e) => {
 });
 
 nextBtn.addEventListener("click", () => {
-  form.querySelector("fieldset").disabled = false;
   currentQuestion++;
-  renderQuestion(currentQuiz);
-  updateProgressBar();
-  nextBtn.classList.add("hidden");
-  submitBtn.classList.remove("hidden");
+  if (currentQuestion < currentQuiz.questions.length) {
+    form.querySelector("fieldset").disabled = false;
+    renderQuestion(currentQuiz);
+    updateProgressBar();
+    nextBtn.classList.add("hidden");
+    submitBtn.classList.remove("hidden");
+  } else {
+    finishQuiz();
+  }
 });

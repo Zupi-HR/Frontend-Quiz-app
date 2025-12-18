@@ -428,10 +428,8 @@ h1 strong {
 }
 
 
-.submit-btn:hover,
-.next-btn:hover,
-.submit-btn:focus-visible,
-.next-btn:focus-visible {
+.btn:hover,
+.btn:focus-visible {
   opacity: 0.75;
 }
 
@@ -487,6 +485,43 @@ h1 strong {
   visibility: visible;
 }
 
+.quiz-completed {
+  color: var(--text-primary);
+}
+
+.quiz-completed header {
+  font-size: var(--fs-40);
+}
+
+.quiz-completed header p {
+  font-weight: var(--fw-medium);
+}
+
+.score-card {
+  margin-top: var(--spacing-500);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-200);
+  align-items: center;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: var(--spacing-400);
+  box-shadow: var(--shadow-card);
+}
+
+.score-card strong {
+  font-size: var(--fs-88);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  display: block;
+}
+
+.score-card>span {
+  font-size: var(--fs-18);
+  color: var(--text-secondary);
+  font-weight: var(--fw-regular);
+}
 
 @media (min-width: 768px) {
   :root {
