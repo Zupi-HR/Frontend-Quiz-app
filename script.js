@@ -72,6 +72,9 @@ function updateProgressBar() {
   questionNumberDisplay.textContent = currentQuestion + 1;
   const progress = (currentQuestion + 1) * 10;
   progressBarInner.style.setProperty("--progress-value", progress);
+  document
+    .querySelector(".progress-bar")
+    .setAttribute("aria-valuenow", progress);
 }
 
 function checkValidity() {
