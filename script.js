@@ -150,4 +150,7 @@ nextBtn.addEventListener("click", () => {
   form.querySelector("fieldset").disabled = false;
   currentQuestion++;
   renderQuestion(currentQuiz);
+  updateProgressBar();
+  nextBtn.classList.add("hidden");
+  submitBtn.classList.remove("hidden");
 });
