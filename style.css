@@ -413,7 +413,7 @@ h1 strong {
   transition: width 0.3s ease-in-out;
 }
 
-.submit-btn {
+.btn {
   width: 100%;
   background-color: var(--color-brand);
   border: none;
@@ -427,8 +427,11 @@ h1 strong {
   transition: opacity 0.3s ease;
 }
 
+
 .submit-btn:hover,
-.submit-btn:focus-visible {
+.next-btn:hover,
+.submit-btn:focus-visible,
+.next-btn:focus-visible {
   opacity: 0.75;
 }
 

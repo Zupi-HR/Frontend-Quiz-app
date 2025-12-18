@@ -9,8 +9,11 @@ const errorMessage = document.querySelector(".error-message");
 const progressBarInner = document.querySelector(".progress-bar-inner");
 const questionNumberDisplay = document.querySelector(".question-number");
 const answerLabels = document.querySelectorAll(".quiz-question .option-card");
+const submitBtn = document.querySelector(".submit-btn");
+const nextBtn = document.querySelector(".next-btn");
 
 let currentQuestion = 0;
+let currentScore = 0;
 let currentQuiz = null;
 
 function enableDarkMode() {
@@ -85,13 +88,21 @@ function checkAnswer(form) {
   const selectedLabel = selectedInput.closest(".option-card");
   const selectedAnswer = selectedInput.value;
   const correctAnswer = currentQuiz.questions[currentQuestion].answer;
-  console.log(selectedLabel);
-  console.log(selectedAnswer);
 
   if (selectedAnswer === correctAnswer) {
     selectedLabel.classList.add("correct");
+    currentScore++;
   } else {
     selectedLabel.classList.add("incorrect");
+    const allOptions = form.querySelectorAll('input[name="answer"]');
+    console.log(allOptions);
+    allOptions.forEach((option) => {
+      if (option.value === correctAnswer) {
+        option
+          .closest(".option-card")
+          .querySelector(".icon-correct").style.display = "block";
+      }
+    });
   }
 }
 
@@ -101,6 +112,9 @@ function renderQuestion(quiz) {
   questionText.textContent = question.question;
   errorMessage.classList.remove("visible");
   question.options.forEach((choice, index) => {
+    answerLabels[index].classList.remove("correct", "incorrect");
+    const correctIcon = answerLabels[index].querySelector(".icon-correct");
+    if (correctIcon) correctIcon.style.display = "";
     const input = answerLabels[index].querySelector('input[type="radio"]');
     input.value = choice;
     input.checked = false;
@@ -128,5 +142,12 @@ form.addEventListener("submit", (e) => {
   }
   form.querySelector("fieldset").disabled = true;
   checkAnswer(e.target);
+  submitBtn.classList.add("hidden");
+  nextBtn.classList.remove("hidden");
+});
+
+nextBtn.addEventListener("click", () => {
+  form.querySelector("fieldset").disabled = false;
   currentQuestion++;
+  renderQuestion(currentQuiz);
 });
