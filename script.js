@@ -14,6 +14,7 @@ const nextBtn = document.querySelector(".next-btn");
 const quizCompleted = document.getElementById("quiz-completed");
 const finalScore = document.querySelector(".score-card strong");
 const resultSubject = document.querySelector(".score-card .header-subject");
+const playAgainBtn = document.querySelector(".play-again-btn");
 
 let currentQuestion = 0;
 let currentScore = 0;
@@ -54,8 +55,7 @@ async function getData() {
 }
 
 function startQuiz(quiz) {
-  currentQuestion = 0;
-  currentScore = 0;
+  resetGame();
   currentQuiz = quiz;
   headerSubject.dataset.quizType = currentQuiz.title;
   headerSubject.innerHTML = `
@@ -143,10 +143,23 @@ quizMenu.addEventListener("click", async (event) => {
 
 function finishQuiz() {
   quizQuestion.classList.add("hidden");
+
   quizCompleted.classList.remove("hidden");
   finalScore.textContent = currentScore;
   resultSubject.innerHTML = headerSubject.innerHTML;
   resultSubject.dataset.quizType = currentQuiz.title;
+}
+
+function resetGame() {
+  currentQuestion = 0;
+  currentScore = 0;
+  currentQuiz = null;
+  form.querySelector("fieldset").disabled = false;
+  delete headerSubject.dataset.quizType;
+  headerSubject.innerHTML = "";
+  quizCompleted.classList.add("hidden");
+  submitBtn.classList.remove("hidden");
+  nextBtn.classList.add("hidden");
 }
 
 form.addEventListener("submit", (e) => {
@@ -171,4 +184,9 @@ nextBtn.addEventListener("click", () => {
   } else {
     finishQuiz();
   }
+});
+
+playAgainBtn.addEventListener("click", () => {
+  quizMenu.classList.remove("hidden");
+  resetGame();
 });
